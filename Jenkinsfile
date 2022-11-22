@@ -8,12 +8,16 @@ pipeline {
         }
         stage('Second Stage Name') {
             steps{
-                echo "Two"
+               sh echo "Two"
+               sh echo "echo ENV_URL is ${ENV_URL}"
             }
         }
         stage('Third Stage Name') {
             steps{
-                echo "Three"
+                sh '''echo AWS
+                      echo DevOps
+                      echo Bash
+                   '''
             }
         }
     }
