@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent { label 'SHELL' }
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
@@ -24,6 +24,7 @@ pipeline {
     stages {
         stage('First Stage Name') {
             steps{
+                sh 'hostname'
                 sh "mvn --version"
                 sh "echo One" 
                 sh "env"
