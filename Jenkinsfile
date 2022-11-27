@@ -11,7 +11,7 @@ pipeline {
     environment {
         ENV_URL = "pipeline.google.com"
         ACCESS_KEY = credentials('AWS_ACCESS_KEY')
-        SSH_CRED = Credentials('SSH-CRED')
+        SSH_CRED = credentials('SSH-CRED')
     }
     options {
         buildDiscarder(logRotator(numToKeepStr: '3'))
