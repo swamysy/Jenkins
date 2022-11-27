@@ -11,6 +11,7 @@ pipeline {
     environment {
         ENV_URL = "pipeline.google.com"
         ACCESS_KEY = credentials('AWS_ACCESS_KEY')
+        SSH_CRED = Credentials('SSH-CRED')
     }
     options {
         buildDiscarder(logRotator(numToKeepStr: '3'))
@@ -20,6 +21,7 @@ pipeline {
     stages {
         stage('First Stage Name') {
             steps{
+                sh "mvn --version"
                 sh "echo One" 
                 sh "env"
             }
